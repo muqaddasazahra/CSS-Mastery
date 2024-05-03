@@ -1,0 +1,135 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Manrope", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+html,body
+{
+    width: 100%;
+    height:100%;
+}
+#main
+{
+    width: 100%;
+    height:100%;
+    display: flex;
+}
+#left
+{
+    width:40%;
+    height:100%;
+}
+#right
+{
+    width:60%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#F25E95;
+   
+}
+
+#nav
+{
+    display: flex;
+    padding:30px 70px;
+    justify-content: space-between;
+    align-items: center;
+}
+#navright a, #navright i
+{
+    padding:30px 40px;
+    text-decoration: none;
+    color:black;
+
+}
+#text
+{
+    width: 70%;
+    margin:20% 15%;
+}
+#text h1
+{
+    font-size: 90px;
+    font-weight:800;
+}
+#text p
+{
+    opacity: 0.7;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 20px;
+    
+
+}
+#text a{
+   
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    opacity: 0.7;
+    font-weight: 500;
+   
+}
+
+
+img {
+  max-width: 100%;
+}
+
+.gallery {
+  --img-size: calc(100px - 0.5rem / 2);
+  display: grid;
+  place-items: center;
+  gap: 0.5rem;
+  grid-template-columns: repeat(6, var(--img-size));
+  grid-template-rows: repeat(3, var(--img-size));
+
+  img {
+    aspect-ratio: 1;
+    object-fit: cover;
+    grid-column: span 2;
+    border-radius: 0.5rem;
+    clip-path: path(
+      "M 80 20 C 100 0 100 0 120 20 C 140 40 160 60 180 80 C 200 100 200 100 180 120 C 160 140 140 160 120 180 C 100 200 100 200 80 180 C 60 160 40 140 20 120 C 0 100 0 100 20 80 Z"
+    );
+    transition: filter 500ms, clip-path 500ms;
+
+    &:nth-of-type(4) {
+      grid-column: 2 / span 2;
+    }
+
+    &:hover {
+      z-index: 100;
+      clip-path: path(
+        "M 0 0 C 100 0 100 0 200 0 C 200 50 200 50 200 80 C 200 100 200 100 200 120 C 200 150 200 150 200 200 C 100 200 100 200 0 200 C 0 150 0 150 0 120 C 0 100 0 100 0 80 Z"
+      );
+    }
+
+    &:not(:hover) {
+      animation: zIndexHack 500ms;
+    }
+  }
+}
+
+.gallery:hover > img {
+  filter: brightness(0.5) saturate(0.5);
+}
+
+.gallery > img:hover {
+  filter: brightness(1) saturate(1.5);
+}
+
+@keyframes zIndexHack {
+  0%,
+  100% {
+    z-index: 10;
+  }
+}
