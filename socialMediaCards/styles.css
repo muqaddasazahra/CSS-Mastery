@@ -74,6 +74,7 @@ a {
   justify-content: center;
   align-items: center;
   transform: translateY(4rem);
+  transition: .5s ease;
 }
 .icon {
   font-size: 2.5rem;
@@ -96,6 +97,11 @@ a {
   background-color: #fff;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   transform: translateY(-4rem);
+  transition: .5s ease;
+}
+.card1
+{
+  transition: 0.7s ease;
 }
 
 .card1:hover .frontInsta,
@@ -110,3 +116,4 @@ a {
   transform: translateY(0rem);
   transition: 0.7s ease;
 }
+
