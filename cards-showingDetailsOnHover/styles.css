@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 .main {
   height: 100vh;
@@ -23,67 +24,107 @@
 }
 
 .book {
+  border-radius: 1.5rem;
+
+  position: relative;
+  overflow: hidden;
+  
+}
+#book1 {
   height: 17rem;
   width: 15rem;
-
-  border-radius: 20px;
-  background-image: url("./img.jpg");
+  background-image: url("./book6.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  transition: 0.7 all ease;
+  background-position: center -1.5rem;
+}
+#book2 {
+  height: 17rem;
+  width: 15rem;
+  background-image: url("./book4.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+#book3 {
+  height: 17rem;
+  width: 15rem;
+  background-image: url("./book8.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
 }
 .detail {
   height: 6.5rem;
   width: 13.5rem;
-  
-  border-radius: 8px;
-
+  font-size: 1rem;
+  border-radius: 1rem;
+  padding: 0.75rem 0.75rem;
+  line-height: 1.5rem;
   position: absolute;
-  bottom: 0rem;
+  top: 15.5rem;
   left: 0.75rem;
   background-color: #fff;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
-  display: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transition: opacity 1s 1s;
+ 
+}
+
+.price {
+  font-weight: 300;
+  font-size: 0.75rem;
+  margin-top: -0.25rem;
 }
 
 .book:hover .detail {
-  display: block;
-  transform: translateY(1rem);
-  animation: myanimation 0.7s linear;
+  animation: showDetails 1s forwards;
+  opacity: 1;
+  transition: opacity 0.3s;
 }
 
-@keyframes myanimation {
-  0% {
-    display: block;
-    transform: translateY(0rem);
-  }
+.book:hover {
+  animation: removeOverflow 1s forwards;
+}
+
+.book:not(:hover) .detail {
+  animation: hideData 1s forwards;
+}
+.book:not(:hover) {
+  animation: showOverflow 1s forwards;
+}
+@keyframes showDetails {
   50% {
-    display: block;
-    transform: translateY(-2.5rem);
+    transform: translateY(-6rem);
   }
   100% {
-    transform: translateY(1rem);
-   
-    animation: goingback 0.7s linear;
+    transform: translateY(-4rem);
+  }
+}
+@keyframes removeOverflow {
+  to {
+    overflow: initial;
   }
 }
 
-@keyframes goingback {
-    0% {
-      transform: translateY(0rem);
-    }
-    50% {
-      transform: translateY(-2.5rem);
-    }
-    100% {
-      transform: translateY(0rem);
-      /* display: none;  */
-    }
+@keyframes hideData {
+  0% {
+    transform: translateY(-4rem);
   }
-  
-  .book:hover .detail {
-    display: block;
-    transform: translateY(1rem);
-    animation: myanimation 0.7s linear;
+  50% {
+    transform: translateY(-6rem);
   }
+  100% {
+    transform: translateY(1.5rem);
+  }
+}
+
+@keyframes showOverflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+  50% {
+    overflow: hidden;
+  }
+}
